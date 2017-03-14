@@ -1,38 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<meta charset="UTF-8">
+	<title>蓝莓直播-贪食蛇</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
 </head>
-
 <body>
-    <img src="" alt="" class="asd">
-    <script type="text/javascript" src='js/jquery.js'></script>
-    <script type="text/javascript">
-    var img = "http://ohudong.cztv.com/1/245217/images/hand.png";
+<div class="play"></div>
+<div class="gameStart">
+	<div class="qiu-decorations">
+		<div class="qiu1 lan-qiu"></div>
+		<div class="qiu2 red-qiu"></div>
+		<div class="qiu3 red-qiu"></div>
+		<div class="qiu4 red-qiu"></div>
+		<div class="qiu5 red-qiu"></div>
+		<div class="qiu6 red-qiu"></div>
+		<div class="qiu7 yellow-qiu"></div>
+		<div class="qiu8 lan-qiu"></div>
+		<div class="qiu9 yellow-qiu"></div>
+		<div class="qiu10 yellow-qiu"></div>
+		<div class="qiu11 lan-qiu"></div>
+		<div class="qiu12 lan-qiu"></div>
+		<div class="qiu13 yellow-qiu"></div>
+	</div>
+	<div class="login-decorations">
+		<div class="bg1">
+			<div class="shan"></div>
+			<div class="dian"></div>
+			<div class="bz"></div>
+			<div class="dian1"></div>
+			<div class="sdlr"></div>
+		</div>
+		<div class="bg2">
+			<div class="shan"></div>
+			<div class="dian"></div>
+			<div class="tree"></div>
+		</div>
+		<div class="bg3">
+			<div class="shan"></div>
+			<div class="dian"></div>
+			<div class="dian1"></div>
+			<div class="lu"></div>
+		</div>
+	</div>
 
-    function convertImgToBase64(url, callback, outputFormat){
-    var canvas = document.createElement('CANVAS'),
-        ctx = canvas.getContext('2d'),
-        img = new Image;
-    img.crossOrigin = 'Anonymous';
-    img.onload = function(){
-        canvas.height = img.height;
-        canvas.width = img.width;
-        ctx.drawImage(img,0,0);
-        var dataURL = canvas.toDataURL(outputFormat || 'image/png');
-        callback.call(this, dataURL);
-        canvas = null; 
-    };
-    img.src = url;
-}
+	<div class="gameStart-center">
+		<div class="gameStart-title">
+			<div class="lan"></div>
+			<div class="mei"></div>
+			<div class="hi"></div>
+			<div class="chi"></div>
+			<div class="begin-snake"></div>
+		</div>
+		<div class="comeOn"></div>
+	</div>
+</div>
+
+<div class="main" style="display: none">
+	<div class="decorates">
+		<div class="snow"></div>
+		<div class="logo"></div>
+		<div class="bg1"></div>
+		<div class="bg2"></div>
+		<div class="sd"></div>
+		<div class="tree"></div>
+		<div class="tree1"><img src="images/tree.png" alt=""></div>
+		<div class="tree2"><img src="images/tree.png" alt=""></div>
+		<div class="tree3"><img src="images/tree.png" alt=""></div>
+	</div>
+	<div class="control">
+		<div class="begin-btn"></div>
+		<div class="fs"></div>
+		<div class="num">0</div>
+	</div>
+
+	<ul class="snake">
+		<li datas='1'></li>
+		<li datas='2'></li>
+		<li datas='3'></li>
+	</ul><!-- 
+	<div class="btns">
+		<button class="top"></button>
+		<button class="right"></button>
+		<button class="bottom"></button>
+		<button class="left"></button>
+	</div> -->
+	<div class="zhongzi">
+		<span></span>
+	</div>
+	<script type="text/javascript">
+		init();
+		$(window).resize(function(){
+			init();
+		})
+		function init(){
+			var w=$(window).width();
+			var h=$(window).height();
+			var left=parseInt($('.snake li:first').css("left"))
+			$(".main,.gameStart,body").height(h);
+			$("html,body").css({fontSize:w/1080*100+"px"})
+		    $(".snake li").each(function(){
+		        var snakeW=$(this).width();
+		        var index=$(this).index();
+		    })
+		}
+	</script>
+	<div class="overSec">
+		<div class="overSec-body">
+			<div class="overSec-btns">
+				<div class="overSec-btns-bg"></div>
+				<div class="fsNum"></div>
+				<a class="return" href="javascript:void(0)"></a>
+				<a class="again" href="javascript:void(0)"></a>
+				<a class="share" href="javascript:void(0)"></a>
+			</div>
+		</div>
+	</div>
+	<div class="share-sec"></div>
+
+</div>
 
 
-convertImgToBase64('http://ohudong.cztv.com/1/245217/images/hand.jpg', function(base64Img){
-    $(".asd").attr("src",base64Img)
-});
-    </script>
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="js/js.js"></script>
 </body>
-
 </html>
